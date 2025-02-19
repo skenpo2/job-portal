@@ -3,11 +3,11 @@ import { BsMoonFill, BsSunFill } from 'react-icons/bs';
 
 const Nav = () => {
   const [theme, setTheme] = useState(
-    localStorage.getItem('theme') || 'fantasy'
+    localStorage.getItem('theme') || 'emerald'
   );
 
   const handleTheme = () => {
-    const newTheme = theme === 'fantasy' ? 'dracula' : 'fantasy';
+    const newTheme = theme === 'emerald' ? 'night' : 'emerald';
     setTheme(newTheme);
   };
 
@@ -16,10 +16,12 @@ const Nav = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
   return (
-    <nav className="bg-base-100">
+    <nav className="bg-base-100 w-full shadow-xl fixed top-0 left-0 z-30">
       <div className="navbar  align-element">
         <div className="flex-1">
-          <a className="btn btn-ghost text-2xl">myJOB</a>
+          <a className="btn btn-ghost font-bold text-secondary text-2xl">
+            myJOB
+          </a>
         </div>
         <div className="flex justify-between gap-6">
           {/* THEME SETUP */}

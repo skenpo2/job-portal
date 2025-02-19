@@ -1,12 +1,74 @@
-import Nav from './components/Nav';
-import Search from './components/Search';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import {
+  MyJobs,
+  FeaturedJobs,
+  Home,
+  AppliedJobs,
+  PostedJob,
+  SingleJob,
+  Login,
+  Register,
+  PostJob,
+  EditJob,
+  Profile,
+} from './pages';
+
+import { loader as HomeLoader } from './pages/FeaturedJobs';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+    children: [
+      {
+        index: true,
+        element: <FeaturedJobs />,
+        loader: HomeLoader,
+      },
+      {
+        path: 'myjobs',
+        element: <MyJobs />,
+        children: [
+          {
+            index: true,
+            element: <AppliedJobs />,
+          },
+          {
+            path: 'posted',
+            element: <PostedJob />,
+          },
+        ],
+      },
+      {
+        path: 'profile',
+        element: <Profile />,
+      },
+      {
+        path: 'jobs/:id',
+        element: <SingleJob />,
+      },
+
+      {
+        path: 'postjob',
+        element: <PostJob />,
+      },
+      {
+        path: 'editjob/:id',
+        element: <EditJob />,
+      },
+    ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
+  },
+]);
 const App = () => {
-  return (
-    <>
-      <Nav />
-      <Search />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 export default App;

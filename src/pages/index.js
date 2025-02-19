@@ -1,0 +1,12 @@
+export { default as Home } from './Home';
+export { default as AppliedJobs } from './AppliedJobs';
+export { default as FeaturedJobs } from './FeaturedJobs';
+export { default as SingleJob } from './SingleJob';
+export { default as EditJob } from './EditJob';
+export { default as JobApply } from './JobApply';
+export { default as MyJobs } from './MyJobs';
+export { default as PostJob } from './PostJob';
+export { default as Profile } from './Profile';
+export { default as PostedJob } from './PostedJobs';
+export { default as Login } from './Login';
+export { default as Register } from './Register';
