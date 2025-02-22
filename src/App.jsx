@@ -15,6 +15,7 @@ import {
 } from './pages';
 
 import { loader as HomeLoader } from './pages/FeaturedJobs';
+import { loader as SingleJobLoader } from '../src/pages/SingleJob';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
       {
         path: 'jobs/:id',
         element: <SingleJob />,
+        loader: SingleJobLoader,
       },
 
       {

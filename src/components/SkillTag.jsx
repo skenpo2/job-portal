@@ -1,4 +1,8 @@
 const SkillTag = ({ skill }) => {
-  return <div className="badge badge-outline badge-primary">{skill}</div>;
+  return (
+    <div className="badge font-medium text-xs badge-soft badge-secondary">
+      {skill}
+    </div>
+  );
 };
 export default SkillTag;

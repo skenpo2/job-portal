@@ -6,7 +6,6 @@ import JobList from '../components/JobList';
 export const loader = async () => {
   try {
     const response = await axios.get('http://localhost:5000/jobs/verified');
-    console.log(response.data.verifiedJobs);
     return response.data.verifiedJobs;
   } catch (error) {
     console.log(error);

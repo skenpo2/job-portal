@@ -7,7 +7,7 @@ const Nav = () => {
   );
 
   const handleTheme = () => {
-    const newTheme = theme === 'emerald' ? 'night' : 'emerald';
+    const newTheme = theme === 'emerald' ? 'dracula' : 'emerald';
     setTheme(newTheme);
   };
 
@@ -16,7 +16,7 @@ const Nav = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
   return (
-    <nav className="bg-base-100 w-full shadow-xl fixed top-0 left-0 z-30">
+    <nav className=" w-full shadow-xl backdrop-blur-md bg-transparent fixed top-0 left-0 z-30">
       <div className="navbar  align-element">
         <div className="flex-1">
           <a className="btn btn-ghost font-bold text-secondary text-2xl">

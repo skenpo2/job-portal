@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @plugin "daisyui" {
-  themes: emerald, night;
+  themes: emerald, dracula;
 }
 
 @layer components {
