@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useLoaderData } from 'react-router-dom';
 import SkillTag from '../components/SkillTag';
 import jobapi from '../assets/jobapi.jpg';
+import { useState } from 'react';
 
 export const loader = async ({ params }) => {
   try {
@@ -16,6 +17,7 @@ export const loader = async ({ params }) => {
 
 const SingleJob = () => {
   const job = useLoaderData();
+  const [readMore, setReadMore] = useState(false);
 
   if (!job) {
     return <h1>No available</h1>;
@@ -31,6 +33,7 @@ const SingleJob = () => {
     applicants,
     image,
   } = job;
+
   return (
     <section className="align-element mt-14 py-8 mb-6 flex  flex-col gap-1">
       <div className="flex flex-col justify-between gap-4 py-6 border-b-2 border-b-base-200">
@@ -41,7 +44,15 @@ const SingleJob = () => {
       </div>
       <div className="flex flex-col justify-between gap-2 py-6 border-b-2 border-b-base-200">
         <h2 className="text-lg font-bold">Description</h2>
-        <p className="text-sm font-medium">{description}</p>
+        <p className="text-sm font-medium">
+          {readMore ? description : `${description.substring(0, 150)}... `}
+          <button
+            onClick={() => setReadMore(!readMore)}
+            className="text-xs font-normal cursor-pointer underline text-accent"
+          >
+            {readMore ? 'read less' : 'read more'}
+          </button>
+        </p>
       </div>
       <div className="flex flex-col justify-between  py-6  gap-2 border-b-2 border-b-base-200">
         <h2 className="text-lg font-bold">Skills</h2>

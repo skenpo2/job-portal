@@ -10,20 +10,22 @@ const JobCard = ({
 }) => {
   return (
     <div className="card bg-base-100 shadow-sm">
-      <div className="card-body flex flex-col gap-6 justify-between">
-        <div className="flex justify-between content-center">
-          <div className="w-1/5">
-            <img
-              className="object-cover w-full rounded-lg"
-              src={jobapi}
-              alt="Job Image"
-            />
+      <div className="card-body  flex-col gap-6 justify-between">
+        <div className="flex gap-4 justify-between items-start ">
+          <div className="flex  justify-between items-start lg:w-[70%] gap-1">
+            <div className="w-2/6">
+              <img
+                className=" w-10 h-10 object-cover rounded-lg"
+                src={jobapi}
+                alt="Job Image"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <h2 className="font-bold text-sm lg:text-lg ">{title}</h2>
+              <p className="text-xs font-md text-neutral-content">{company}</p>
+            </div>
           </div>
-          <div className="flex flex-col gap-2">
-            <h2 className="card-title">{title}</h2>
-            <p className="text text-sm">{company}</p>
-          </div>
-          <div className="badge w-1/5 badge-info">
+          <div className="badge  badge-soft font-medium text-xs badge-info">
             <svg
               className="size-[1em]"
               xmlns="http://www.w3.org/2000/svg"
@@ -71,8 +73,8 @@ const JobCard = ({
         </div>
       </div>
       <div className="flex px-8 font-medium text-sm pb-4 justify-between">
-        <p className="text-secondary">{salary}</p>
-        <p className="text-tertiary">{createdAt}</p>
+        <p className="text-xs ">{salary}</p>
+        <p className="text-xs font-md text-neutral-500">{createdAt}</p>
       </div>
     </div>
   );
