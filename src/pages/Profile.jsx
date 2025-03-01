@@ -1,12 +1,4 @@
-import axios from 'axios';
-import { NavLink, Outlet } from 'react-router-dom';
 import SkillTag from '../components/SkillTag';
-
-const subPage = [
-  { id: 1, name: 'profile', url: '.' },
-  { id: 2, name: 'applied', url: 'applied' },
-  { id: 3, name: 'posted', url: 'posted' },
-];
 
 // export const loader = async () =>{
 //   await axios.get
@@ -14,33 +6,12 @@ const subPage = [
 
 const Profile = () => {
   return (
-    <section className=" align-element mt-20 p-4 mb-4 ">
-      <div role="tablist" className="tabs tabs-box">
-        {subPage.map((page) => {
-          const { id, name, url } = page;
-          return (
-            <NavLink
-              key={id}
-              to={url}
-              className={({ isActive }) =>
-                `tab capitalize  font-medium ${isActive ? 'tab-active' : ''}`
-              }
-            >
-              {name}
-            </NavLink>
-          );
-        })}
-      </div>
-
+    <section className="">
       <article className="mt-6 px-4 flex flex-col gap-4">
         <h2 className="font-bold mb-2 text-xl">Profile</h2>
-        <div className="avatar indicator">
-          <span className="indicator-item badge badge-secondary">Online</span>
-          <div className=" w-48 rounded-lg">
-            <img
-              alt="profile picture"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            />
+        <div className="avatar">
+          <div className="ring-primary ring-offset-base-100 w-48 rounded-full ring ring-offset-2">
+            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
           </div>
         </div>
         <div className="flex flex-col gap-4">
@@ -114,7 +85,6 @@ const Profile = () => {
           </button>
         </div>
       </article>
-      <Outlet />
     </section>
   );
 };

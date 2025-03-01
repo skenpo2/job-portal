@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import {
-  MyJobs,
   FeaturedJobs,
   Home,
   AppliedJobs,
@@ -16,6 +15,10 @@ import {
 
 import { loader as HomeLoader } from './pages/FeaturedJobs';
 import { loader as SingleJobLoader } from '../src/pages/SingleJob';
+import { action as LoginAction } from './pages/Login';
+import About from './pages/About';
+import ProfileLayout from './pages/ProfileLayout';
+import { store } from './store';
 
 const router = createBrowserRouter([
   {
@@ -28,11 +31,19 @@ const router = createBrowserRouter([
         loader: HomeLoader,
       },
       {
-        path: 'myjobs',
-        element: <MyJobs />,
+        path: 'about',
+        element: <About />,
+      },
+      {
+        path: 'profile',
+        element: <ProfileLayout />,
         children: [
           {
             index: true,
+            element: <Profile />,
+          },
+          {
+            path: 'applied',
             element: <AppliedJobs />,
           },
           {
@@ -40,10 +51,6 @@ const router = createBrowserRouter([
             element: <PostedJob />,
           },
         ],
-      },
-      {
-        path: 'profile',
-        element: <Profile />,
       },
       {
         path: 'jobs/:id',
@@ -64,6 +71,7 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+    action: LoginAction(store),
   },
   {
     path: '/register',

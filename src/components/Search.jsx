@@ -1,6 +1,6 @@
 const Search = () => {
   return (
-    <div className=" bg-base-200 align-element md:rounded-xl lg:rounded-xl mt-24">
+    <div className=" bg-base-200 align-element mt-8 md:rounded-xl lg:rounded-xl">
       <div className="flex gap-1 py-4">
         <div className=" w-1/2">
           <label className="input w-full rounded-none border-none rounded-tl-xl rounded-bl-xl">

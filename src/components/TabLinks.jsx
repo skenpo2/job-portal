@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const navLinks = [
@@ -13,9 +14,10 @@ const navLinks = [
   },
   {
     id: 3,
-    url: 'myjobs',
-    text: 'my jobs',
+    url: 'contact',
+    text: 'contact us',
   },
+
   {
     id: 4,
     url: 'profile',
@@ -24,10 +26,12 @@ const navLinks = [
 ];
 
 const NavLinks = () => {
+  const user = useSelector((state) => state.userState.user);
   return (
     <div role="tablist" className="tabs tabs-border">
       {navLinks.map((link) => {
         const { id, url, text } = link;
+        if (url === 'profile' && !user) return null;
         return (
           <NavLink
             role="tab"

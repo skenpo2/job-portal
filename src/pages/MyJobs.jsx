@@ -18,7 +18,7 @@ const MyJobs = () => {
           to={'posted'}
           role="tab"
           className={({ isActive }) =>
-            `tab capitalize  font-medium ${isActive ? 'tab-active' : ''}`
+            `tab capitalize  font-bold ${isActive ? 'tab-active' : ''}`
           }
         >
           Posted

@@ -15,8 +15,8 @@ const FeaturedJobs = () => {
   return (
     <div>
       <Search />
-      <Outlet />
       <JobList />
+      <Outlet />
     </div>
   );
 };

@@ -1,13 +1,16 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigation } from 'react-router-dom';
 import Nav from '../components/Nav';
+import Loading from '../components/Loading';
 
 const Home = () => {
-  const isShow = true;
+  const navigation = useNavigation();
+  const isPageLoading = navigation.state === 'loading';
+
   return (
-    <>
+    <section className=" min-h-screen flex flex-col align-element p-6">
       <Nav />
-      {isShow ? <Outlet /> : null}
-    </>
+      {isPageLoading ? <Loading /> : <Outlet />}
+    </section>
   );
 };
 export default Home;
